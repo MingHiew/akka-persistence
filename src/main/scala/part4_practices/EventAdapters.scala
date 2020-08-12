@@ -69,8 +69,8 @@ object EventAdapters extends App {
   val inventoryManager = system.actorOf(Props[InventoryManager], "inventoryManager")
 
   val guitars = for (i <- 1 to 10) yield Guitar(s"$i", s"Hakker $i", "RockTheJVM")
-  //  guitars.foreach { guitar =>
-  //    inventoryManager ! AddGuitar(guitar, 5)
-  //  }
+    guitars.foreach { guitar =>
+      inventoryManager ! AddGuitar(guitar, 5)
+    }
   inventoryManager ! "print"
 }
